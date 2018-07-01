@@ -44,3 +44,11 @@ Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('passw
 //发布和删除微博
 Route::post('/statuses','StatusesController@store')->name('statuses.store');
 Route::delete('/statuses/{status}','StatusesController@destroy')->name('statuses.destroy');
+
+//关注的人和粉丝
+Route::get('/users/{user}/followers', 'UsersController@followers')->name('users.followers');
+Route::get('/users/{user}/followings', 'UsersController@followings')->name('users.followings');
+
+//关注和取消关注
+Route::post('/followers/{user}','FollowersController@store')->name('followers.store');
+Route::delete('/followers/{user}','FollowersController@destroy')->name('followers.destroy');
